@@ -10,20 +10,6 @@ This is a simple CRUD project built in Flask using ORM
 - **Search**: Search Nobel Prize winner from the database.
 
 ## Installation
-```markdown
-# Nobel Prize CRUD Project
-
-## Introduction
-This is a simple CRUD project built in Flask using ORM.
-
-## Features
-- **Create**: Add new Nobel Prize winners to the database.
-- **Read**: Retrieve information about Nobel Prize winners in a paginated format.
-- **Update**: Update the Nobel Prize winner data.
-- **Delete**: Delete Nobel Prize winners from the database.
-- **Search**: Search for Nobel Prize winners in the database.
-
-## Installation
 1. Clone the repository:
     ```bash
     git clone https://github.com/Vishal-KumarSingh/flaskorm.git
