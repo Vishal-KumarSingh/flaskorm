@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Nobel Winner{% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-4">Nobel Prize Winners</h1>
+
+
+<div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold text-center mb-6">{{ winner.name }}</h1>
+
+    <form method="POST">
+       
+        <div class="mb-4">
+            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+            <input type="text" name="category" value="{{ winner.category }}" id="category" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+     
+        <div class="mb-4">
+            <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+            <input type="text" name="country" value="{{ winner.country }}" id="country" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+        
+        <div class="mb-4">
+            <label for="date_of_birth" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+            <input type="text" name="date_of_birth" value="{{ winner.date_of_birth }}" id="date_of_birth" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+      
+        <div class="mb-4">
+            <label for="date_of_death" class="block text-sm font-medium text-gray-700">Date of Death</label>
+            <input type="text" name="date_of_death" value="{{ winner.date_of_death }}" id="date_of_death" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        
+        <div class="mb-4">
+            <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+            <input type="text" name="gender" value="{{ winner.gender }}" id="gender" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+        
+        <div class="mb-4">
+            <label for="link" class="block text-sm font-medium text-gray-700">Link</label>
+            <input type="text" name="link" value="{{ winner.link }}" id="link" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+       
+        <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <input type="text" name="name" value="{{ winner.name }}" id="name" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+       
+        <div class="mb-4">
+            <label for="place_of_birth" class="block text-sm font-medium text-gray-700">Place of Birth</label>
+            <input type="text" name="place_of_birth" value="{{ winner.place_of_birth }}" id="place_of_birth" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+        
+        <div class="mb-4">
+            <label for="place_of_death" class="block text-sm font-medium text-gray-700">Place of Death</label>
+            <input type="text" name="place_of_death" value="{{ winner.place_of_death }}" id="place_of_death" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+       
+        <div class="mb-4">
+            <label for="text" class="block text-sm font-medium text-gray-700">Text</label>
+            <textarea name="text" id="text" rows="4" 
+                      class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                      required>{{ winner.text }}</textarea>
+        </div>
+
+        
+        <div class="mb-4">
+            <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
+            <input type="number" name="year" value="{{ winner.year }}" id="year" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+       
+        <div class="mb-6">
+            <label for="award_age" class="block text-sm font-medium text-gray-700">Award Age</label>
+            <input type="number" name="award_age" value="{{ winner.award_age }}" id="award_age" 
+                   class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   required>
+        </div>
+
+       
+        <div class="flex justify-center">
+            <button type="submit" 
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Update Winner
+            </button>
+        </div>
+    </form>
+
+    <div class="mt-6 text-center">
+        <a href="{{ url_for('index') }}" class="text-blue-500 hover:underline">Back to Winners List</a>
+    </div>
+</div>
+{% endblock %}

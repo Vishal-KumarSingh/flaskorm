@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Nobel Winners{% endblock %}
+
+{% block content %}
+
+
+<h1 class="text-3xl font-bold mb-4">Nobel Prize Winners</h1>
+
+
+<form action="{{ url_for('index') }}" method="GET" class="mb-6 flex justify-between">
+    <input type="text" name="search" placeholder="Search by name, category..." 
+           class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+           value="{{ request.args.get('search', '') }}">
+    <button type="submit" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+        Search
+    </button>
+</form>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for winner in winners %}
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <div class="p-4">
+            <h2 class="text-xl font-bold mb-2">{{ winner.name }}</h2>
+            <p class="text-gray-700"><strong>Category:</strong> {{ winner.category }}</p>
+            <p class="text-gray-700"><strong>Year:</strong> {{ winner.year }}</p>
+            <p class="text-gray-700"><strong>Country:</strong> {{ winner.country }}</p>
+            <p class="text-gray-700"><strong>Gender:</strong> {{ winner.gender }}</p>
+            <p class="text-gray-700"><strong>Date of Birth:</strong> {{ winner.date_of_birth }}</p>
+            <p class="text-gray-700"><strong>Date of Death:</strong> {{ winner.date_of_death }}</p>
+            <p class="text-gray-700"><strong>Place of Birth:</strong> {{ winner.place_of_birth }}</p>
+            <p class="text-gray-700"><strong>Place of Death:</strong> {{ winner.place_of_death }}</p>
+            <p class="text-gray-700"><strong>Link:</strong> <a href="{{ winner.link }}" class="text-blue-500 hover:underline">Visit</a></p>
+            <p class="text-gray-700"><strong>Text:</strong> {{ winner.text }}</p>
+            <p class="text-gray-700"><strong>Award Age:</strong> {{ winner.award_age }}</p>
+            <a href="{{ url_for('update_winner', winner_id=winner.id) }}" 
+            class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded my-2">
+            Edit
+         </a>
+            <form action="{{ url_for('delete_winner', winner_id=winner.id) }}" method="POST" class="mt-4">
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="mt-4 flex justify-center">
+    {% if pagination.has_prev %}
+           <a href="{{ url_for('index', page=pagination.prev_num) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1">Previous</a>
+    {% endif %}
+    
+    {% if pagination.has_next %}
+        <a href="{{ url_for('index', page=pagination.next_num) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-1">Next</a>
+    {% endif %}
+</div>
+{% endblock %}
